@@ -2,6 +2,11 @@
 docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 -e RABBITMQ_DEFAULT_USER=guest -e RABBITMQ_DEFAULT_PASS=guest rabbitmq:3-management
 docker run -d --name meu-sql-server -p 1433:1433 -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=SuaSenhaSegura" -v /caminho/para/data:/var/opt/mssql mcr.microsoft.com/mssql/server:2019-latest
 ```
+
+for arm server
+```
+docker run -e "ACCEPT_EULA=1" -e "MSSQL_SA_PASSWORD=MyPass@word" -e "MSSQL_PID=Developer" -e "MSSQL_USER=SA" -p 1433:1433 -d --name=sql mcr.microsoft.com/azure-sql-edge
+```
 Create the containers above and check if the application can connect to them:
 http://localhost:5101/health
 
